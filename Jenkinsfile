@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    registry = "localhost:5000/node-test-app_jenkins"
+    registry = "localhost:32000/node-test-app_jenkins"
     dockerImage = ""
     Deploy = "true"
   }
@@ -34,18 +34,19 @@ pipeline {
       }
       steps {
         script {
-          sh 'sudo kubectl create -f webapp.yaml'
+          sh 'sudo microk8s kubectl create -f webapp-deployment.yaml'
+          Sh 'sudo microk8s kubectl create -f webapp-service.yaml
           sh 'sudo kubectl get all'
         }
       }
     }
     stage('Update') {
       when {
-        expression { Deploy == "false" }
-      }
+          expression { Deploy == "false" }
+        }
       steps {
         script {
-          sh "sudo kubectl set image deployment.apps/test-deployment node-app-container=${registry}:${BUILD_NUMBER}"
+          sh "sudo microk8s kubectl set image deployment.apps/test-deployment node-app-container=${registry}:${BUILD_NUMBER}"
         }
       }
     }
