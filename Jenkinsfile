@@ -35,7 +35,7 @@ pipeline {
       steps {
         script {
           sh 'sudo microk8s kubectl create -f webapp-deployment.yaml'
-          Sh 'sudo microk8s kubectl create -f webapp-service.yaml
+          sh 'sudo microk8s kubectl create -f webapp-service.yaml'
           sh 'sudo kubectl get all'
         }
       }
