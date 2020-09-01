@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    registry = "localhost:32000/webapp"
+    registry = "localhost:32000/test"
     dockerImage = ""
     Deploy = "true"
   }
