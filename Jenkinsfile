@@ -1,9 +1,9 @@
 pipeline {
   agent any
   environment {
-    registry = "localhost:32000/test"
+    registry = "mghani828/test"
     dockerImage = ""
-    Deploy = "true"
+    Deploy = "false"
   }
   stages {
     stage('Poll SCM') {
