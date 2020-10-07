@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    registry = "mghani828/test"
+    registry = "localhost:32000/test"
     dockerImage = ""
     Deploy = "false"
   }
@@ -22,7 +22,7 @@ pipeline {
     stage('Push Image') {
       steps {
         script {
-          docker.withRegistry('https://hub.docker.com', 'docker_hub_reg') {
+          docker.withRegistry('') {
             dockerImage.push()
           }
         }
