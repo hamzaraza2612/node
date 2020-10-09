@@ -46,7 +46,7 @@ pipeline {
         }
       steps {
         script {
-          sh "sudo kubectl set image deployment.apps/webapp webapp=${registry}:${BUILD_NUMBER}"
+          sh "sudo microk8s kubectl set image deployment.apps/webapp webapp=${registry}:${BUILD_NUMBER}"
         }
       }
     }
