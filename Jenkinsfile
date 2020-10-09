@@ -3,7 +3,7 @@ pipeline {
   environment {
     registry = "hamza2612/test"
     dockerImage = ""
-    Deploy = "true"
+    Deploy = "false"
   }
   stages {
     stage('Poll SCM') {
