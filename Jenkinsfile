@@ -3,7 +3,7 @@ pipeline {
   environment {
     registry = "hamza2612/test"
     dockerImage = ""
-    Deploy = "true"
+    Deploy = "false"
   }
   stages {
     stage('Poll SCM') {
@@ -42,7 +42,7 @@ pipeline {
     }
     stage('Update') {
       when {
-          expression { Deploy == "true" }
+          expression { Deploy == "false" }
         }
       steps {
         script {
