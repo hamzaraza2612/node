@@ -42,7 +42,7 @@ pipeline {
     }
     stage('Update') {
       when {
-          expression { Deploy == "false" }
+          expression { Deploy == "true" }
         }
       steps {
         script {
